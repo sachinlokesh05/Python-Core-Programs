@@ -159,22 +159,3 @@ def UserRegistrationUC8(password):
     else:
         return False
 
-
-# usernameee = raw_input("enter the username: ")
-# email = raw_input("enter the email: ")
-# phone_number = raw_input("enter the phone_number: ")
-# password = raw_input("enter the password: ")
-
-# a=UserRegistrationUC1(usernameee)
-# b=UserRegistrationUC2(usernameee)
-# b=UserRegistrationUC3(email)
-# b=UserRegistrationUC4(phone_number)
-# b=UserRegistrationUC5(password)
-# b=UserRegistrationUC6(password)
-# b=UserRegistrationUC7(password)
-# b=UserRegistrationUC8(password)
-
-
-
-# print(a)
-# print(b)
