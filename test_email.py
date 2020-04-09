@@ -1,8 +1,9 @@
 import unittest
 from userregistration import UserRegistrationUC3
-
-
+import pytest
 class TestEmail(unittest.TestCase):
+
+    
     '''
 
     Invalid Emails (TLD - Top Level Domains)
@@ -86,6 +87,9 @@ class TestEmail(unittest.TestCase):
     def test_valid_email_type18(self):
         result=UserRegistrationUC3('abc+100@gmail.com')
         self.assertEqual(result,True)
+
+
     
+
 if  __name__ == "__main__":
     unittest.main()

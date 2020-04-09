@@ -17,5 +17,7 @@ class ListOfEmailTest:
                 a.append(i.strip())
         return a
         f.close()
-list_email = ListOfEmailTest('emails.txt').checkEmail()
-print(list_email)
+if __name__ == "__main__":
+    list_email = ListOfEmailTest('emails.txt').checkEmail()
+    print(list_email)
+
