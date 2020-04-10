@@ -1,90 +1,88 @@
 #!/usr/bin/env python
-
+from customException.NullException import *
 import unittest
 from moodAnalyser import MoodAnalyser
 import failure   
 class test_moodAnalyser(unittest.TestCase):
 
-    # def setUp(self):
-    #     pass
     
     
 
-    # def test_Mood_function_return_Happy_or_Sad_Mood_UC1(self):
-    #     result=MoodAnalyser().analyseMood("Happy")
-    #     self.assertEqual(result,'Happy') 
+    def test_Mood_function_return_Happy_or_Sad_Mood_UC1(self):
+        result=MoodAnalyser().analyseMood("Happy")
+        self.assertEqual(result,'Happy') 
 
 
 
-    # '''
+    '''
 
-    # Given “I am in Sad
-    # Mood” message
-    # Should Return SAD
-    # TC 1.1
-    # analyseMood method can just return SAD to
-    # pass this Test Case (TC)
+    Given “I am in Sad
+    Mood” message
+    Should Return SAD
+    TC 1.1
+    analyseMood method can just return SAD to
+    pass this Test Case (TC)
 
-    # '''
+    '''
 
-    # def test_Iam_in_Sad_Mood_message_Should_Return_SAD_TC1_1(self):
-    #     result=MoodAnalyser().analyseMood("I am in Sad Mood")
-    #     self.assertEqual(result,"Sad")
-
-
-
-    # '''
-
-    # Given “I am in Any
-    # Mood” message
-    # Should Return HAPPY
-    # TC 1.2
-    # To make the Test case pass analyseMood
-    # method need to check for Sad else return
-    # HAPPY
-
-    # '''
-
-    # def test_Iam_in_Any_Mood_message_Should_Return_HAPPY_TC1_2(self):
-    #     result=MoodAnalyser().analyseMood("I am in Any Mood")
-    #     self.assertEqual(result,"Happy")
+    def test_Iam_in_Sad_Mood_message_Should_Return_SAD_TC1_1(self):
+        result=MoodAnalyser().analyseMood("I am in Sad Mood")
+        self.assertEqual(result,"Sad")
 
 
 
-    # '''
+    '''
 
-    # Given “I am in Sad
-    # Mood” message in
-    # Constructor Should
-    # Return SAD
-    # Repeat TC 1.1
-    # To pass this Test Case when calling
-    # analyseMood method with no params should
-    # return SAD
+    Given “I am in Any
+    Mood” message
+    Should Return HAPPY
+    TC 1.2
+    To make the Test case pass analyseMood
+    method need to check for Sad else return
+    HAPPY
 
-    # '''
+    '''
 
-    # def test_Iam_in_Sad_Mood_message_in_Constructor_Should_Return_SAD_Repeat_1_1(self):
-    #     result=MoodAnalyser('I am in Sad Mood').analyseMood()
-    #     self.assertEqual(result,"Sad")
+    def test_Iam_in_Any_Mood_message_Should_Return_HAPPY_TC1_2(self):
+        result=MoodAnalyser().analyseMood("I am in Any Mood")
+        self.assertEqual(result,"Happy")
 
 
-    # '''
 
-    # Given “I am in Happy
-    # Mood” message in
-    # Constructor Should
-    # Return SAD
-    # Repeat TC 1.2
-    # To pass this Test Case when calling
-    # analyseMood method with no params should
-    # return HAPPY
+    '''
 
-    # '''
+    Given “I am in Sad
+    Mood” message in
+    Constructor Should
+    Return SAD
+    Repeat TC 1.1
+    To pass this Test Case when calling
+    analyseMood method with no params should
+    return SAD
 
-    # def test_Iam_in_Any_Mood_message_in_Constructor_Should_Return_HAPPY_Repeat_1_2(self):
-    #     result=MoodAnalyser('I am in Happy Mood').analyseMood()
-    #     self.assertEqual(result,"Happy")
+    '''
+
+    def test_Iam_in_Sad_Mood_message_in_Constructor_Should_Return_SAD_Repeat_1_1(self):
+        result=MoodAnalyser('I am in Sad Mood').analyseMood()
+        self.assertEqual(result,"Sad")
+
+
+    '''
+
+    Given “I am in Happy
+    Mood” message in
+    Constructor Should
+    Return SAD
+    Repeat TC 1.2
+    To pass this Test Case when calling
+    analyseMood method with no params should
+    return HAPPY
+
+    '''
+
+    def test_Iam_in_Any_Mood_message_in_Constructor_Should_Return_HAPPY_Repeat_1_2(self):
+        result=MoodAnalyser('I am in Happy Mood').analyseMood()
+        self.assertEqual(result,"Happy")
 
 
     '''
@@ -98,12 +96,25 @@ class test_moodAnalyser(unittest.TestCase):
     '''
     
     def test_Given_Null_Mood_Should_Return_Happy(self):
-        with self.assertRaises(Exception):
-            result = MoodAnalyser().analyseMoodUC1()
-            print(result)  
-            self.assertEqual(result,"Happy")  
+        # with self.assertRaises(Exception):
+        result = MoodAnalyser().analyseMoodUC2()
+        self.assertEqual(result,"Happy")  
 
+    
 
+    def test_Given_Null_Mood_Should_Throw_MoodAnalyserException_TC_3_1(self):
+        with pytest.raises(MoodanalyserException) as e_info:
+            MoodAnalyser().analyseMoodUC3()
+            # self.assertEquals('Mood should not be Null or Empty',MoodanalyserException)
+
+    def test_Given_Null_Mood_Should_Throw_MoodAnalyserException_indicating_Empty_Mood_TC_3_2(self):
+        with pytest.raises(MoodanalyserException) as e_info:
+            MoodAnalyser().analyseMoodUC3()
+
+    # def test_Given_Null_Mood_Should_Return_Happy(self):
+    #     # with self.assertRaises(Exception):
+    #     result = MoodAnalyser().analyseMoodUC3_1()
+    #     self.assertEqual(result,"Happy")
 
 if __name__ == "__main__":
     unittest.main() 
